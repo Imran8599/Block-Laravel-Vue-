@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Block | Vue & Laravel</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-
+<div id="app">
     <!--*******************
         Preloader start
     ********************-->
@@ -299,6 +300,8 @@
 
             <div class="container-fluid">
 
+                <example-component></example-component>
+
             </div>
             <!-- #/ container -->
         </div>
@@ -322,15 +325,16 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
-
+</div>
     <!--**********************************
         Scripts
     ***********************************-->
-    <script src="{{asset('js/common.min.js')}}"></script>
+    <script src="{{asset('plugins/common/common.min.js')}}"></script>
     <script src="{{asset('js/custom.min.js')}}"></script>
     <script src="{{asset('js/settings.js')}}"></script>
     <script src="{{asset('js/gleek.js')}}"></script>
     <script src="{{asset('js/styleSwitcher.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 
 </body>
 
