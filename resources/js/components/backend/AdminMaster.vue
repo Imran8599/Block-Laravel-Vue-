@@ -1,5 +1,5 @@
 <template>
-    <div>
-        Ahamed
+    <div id="adminMain">
+        <router-view></router-view>
     </div>
 </template>

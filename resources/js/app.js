@@ -8,13 +8,13 @@ Vue.use(VueRouter);
 
 import {routes} from './routers';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('master',require('./components/backend/AdminMaster.vue'));
-// Vue.component('dashboard',require('./components/backend/AdminDashboard.vue'));
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('admin-master',require('./components/backend/AdminMaster.vue').default);
 
 
 const router = new VueRouter({
-    routes
+    routes,
+    mode:'history'
 });
 
 
