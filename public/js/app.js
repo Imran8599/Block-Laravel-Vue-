@@ -19505,18 +19505,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("First Name")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v("\n                    Imran\n                ")
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h3", [_vm._v("Dashboard")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [_vm._v("\n        Imran\n    ")])
     ])
   }
 ]
@@ -19544,6 +19538,43 @@ var render = function() {
   return _c("div", { attrs: { id: "adminMain" } }, [_c("router-view")], 1)
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/AdminPost.vue?vue&type=template&id=1f0a95f9&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/backend/AdminPost.vue?vue&type=template&id=1f0a95f9& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [_c("h3", [_vm._v("Post")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _vm._v("\n        All Posts.\n    ")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -34806,6 +34837,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/backend/AdminPost.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/backend/AdminPost.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdminPost_vue_vue_type_template_id_1f0a95f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminPost.vue?vue&type=template&id=1f0a95f9& */ "./resources/js/components/backend/AdminPost.vue?vue&type=template&id=1f0a95f9&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _AdminPost_vue_vue_type_template_id_1f0a95f9___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminPost_vue_vue_type_template_id_1f0a95f9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/backend/AdminPost.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/backend/AdminPost.vue?vue&type=template&id=1f0a95f9&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/backend/AdminPost.vue?vue&type=template&id=1f0a95f9& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPost_vue_vue_type_template_id_1f0a95f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminPost.vue?vue&type=template&id=1f0a95f9& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/AdminPost.vue?vue&type=template&id=1f0a95f9&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPost_vue_vue_type_template_id_1f0a95f9___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPost_vue_vue_type_template_id_1f0a95f9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/routers.js":
 /*!*********************************!*\
   !*** ./resources/js/routers.js ***!
@@ -34817,10 +34901,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
 /* harmony import */ var _components_backend_AdminDashboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/backend/AdminDashboard */ "./resources/js/components/backend/AdminDashboard.vue");
+/* harmony import */ var _components_backend_AdminPost__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/backend/AdminPost */ "./resources/js/components/backend/AdminPost.vue");
+
 
 var routes = [{
   path: '/admin',
   component: _components_backend_AdminDashboard__WEBPACK_IMPORTED_MODULE_0__["default"]
+}, {
+  path: '/post',
+  component: _components_backend_AdminPost__WEBPACK_IMPORTED_MODULE_1__["default"]
 }];
 
 /***/ }),

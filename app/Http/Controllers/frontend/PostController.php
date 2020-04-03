@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\frontend;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Post;
-use App\Category;
-use App\User;
 
 class PostController extends Controller
 {

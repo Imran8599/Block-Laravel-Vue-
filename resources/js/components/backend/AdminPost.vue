@@ -1,10 +1,10 @@
 <template>
     <div class="card">
         <div class="card-header">
-            <h3>Dashboard</h3>
+            <h3>Post</h3>
         </div>
         <div class="card-body">
-            Imran
+            All Posts.
         </div>
     </div>
 </template>
