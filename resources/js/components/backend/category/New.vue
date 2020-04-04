@@ -36,6 +36,10 @@ export default {
         addCategory(){
             this.form.post('/add-category')
                 .then((response)=>{
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Category added successfully.'
+                    })
                     this.$router.push('category-list')
                     //console.log(response.data)
                 })
