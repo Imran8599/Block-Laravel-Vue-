@@ -20,9 +20,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Kolor Tea Shirt For Man</td>
+                        <tr v-for="(category,index) in allCategory" :key="category.id">
+                            <th>{{index+1}}</th>
+                            <td>{{category.cat_name}}</td>
                             <td>
                                 <a href="#">Edit</a> | <a href="#">Delete</a>
                             </td>
@@ -33,3 +33,21 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name:'List',
+    mounted(){
+        this.$store.dispatch('getAllCategory')
+    },
+    computed:{
+        allCategory(){
+            return this.$store.getters.getCategory
+        }
+    },
+    methods:
+    {
+
+    }
+}
+</script>

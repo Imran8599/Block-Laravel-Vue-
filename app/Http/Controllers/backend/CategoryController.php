@@ -19,4 +19,12 @@ class CategoryController extends Controller
         $row->save();
         return ['message'=>'Category added successfully.'];
     }
+
+    public function allCategory()
+    {
+        $categories = Category::all();
+        return response()->json([
+            'allCategor' => $categories
+        ],200);
+    }
 }

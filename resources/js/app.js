@@ -1,14 +1,22 @@
 require('./bootstrap');
 
+//Vue
 window.Vue = require('vue');
+
+//Vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+import storeData from './store'
+const store = new Vuex.Store(
+    storeData
+);
+
+//Vue Routers
 import VueRouter from 'vue-router';
-
 Vue.use(VueRouter);
-
-
 import {routes} from './routers';
 
-//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//Components
 Vue.component('admin-master',require('./components/backend/AdminMaster.vue').default);
 
 //VForm
@@ -35,11 +43,12 @@ window.Toast = Toast;
 
 const router = new VueRouter({
     routes,
-    mode:'history'
+    mode:'hash'
 });
 
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });
