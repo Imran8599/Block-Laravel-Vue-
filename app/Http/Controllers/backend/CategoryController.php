@@ -27,4 +27,10 @@ class CategoryController extends Controller
             'allCategor' => $categories
         ],200);
     }
+
+    public function delete($id)
+    {
+        $row = Category::find($id);
+        $row->delete();
+    }
 }
