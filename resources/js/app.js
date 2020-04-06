@@ -40,6 +40,9 @@ const Toast = Swal.mixin({
 })
 window.Toast = Toast;
 
+// Vue Filter
+import {filter} from './filter'
+
 
 const router = new VueRouter({
     routes,

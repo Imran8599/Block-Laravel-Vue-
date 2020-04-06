@@ -16,13 +16,15 @@
                         <tr>
                             <th>#</th>
                             <th>Category Name</th>
+                            <th>Create Date</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(category,index) in allCategory" :key="category.id">
+                        <tr v-for="(row,index) in allCategory" :key="row.id">
                             <th>{{index+1}}</th>
-                            <td>{{category.cat_name}}</td>
+                            <td>{{row.cat_name}}</td>
+                            <td>{{row.created_at | dateformat}}</td>
                             <td>
                                 <a href="#">Edit</a> | <a href="#">Delete</a>
                             </td>
