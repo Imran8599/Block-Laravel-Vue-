@@ -28,6 +28,25 @@ class CategoryController extends Controller
         ],200);
     }
 
+    public function edit($id)
+    {
+        $row = Category::find($id);
+        return response()->json([
+            'row'=>$row,
+        ]);
+    }
+
+    public function update(Request $request,$id)
+    {
+        $request->validate([
+            'cat_name'=>'required'
+        ]);
+
+        $row = Category::find($id);
+        $row->cat_name = $request->cat_name;
+        $row->save();
+    }
+
     public function delete($id)
     {
         $row = Category::find($id);

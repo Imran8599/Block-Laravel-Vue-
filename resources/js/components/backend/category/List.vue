@@ -26,7 +26,7 @@
                             <td>{{row.cat_name}}</td>
                             <td>{{row.created_at | dateformat}}</td>
                             <td>
-                                <a href="#">Edit</a> | <a href="" @click.prevent="deleteCategory(row.id)">Delete</a>
+                                <router-link :to="`edit-category/${row.id}`">Edit</router-link> | <a href="" @click.prevent="deleteCategory(row.id)">Delete</a>
                             </td>
                         </tr>
                     </tbody>
@@ -50,7 +50,7 @@ export default {
     methods:
     {
         deleteCategory(id){
-            axios.get('delete-category/'+id)
+            axios.get('/delete-category/'+id)
                 .then((response)=>{
                     this.$store.dispatch('getAllCategory')
                     Toast.fire({
