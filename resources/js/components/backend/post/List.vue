@@ -7,7 +7,7 @@
             <div class="card-title">
                 <div class="row">
                     <h4>List</h4>
-                    <a href="#" class="btn btn-primary ml-auto">Add Post</a>
+                    <router-link to="/add-post" class="btn btn-primary ml-auto">Add Post</router-link>
                 </div>
             </div>
             <div class="table-responsive">
@@ -18,18 +18,20 @@
                             <th>User</th>
                             <th>Category</th>
                             <th>Title</th>
+                            <th>Detail</th>
                             <th>Photo</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Imran</td>
-                            <td>Abcd</td>
-                            <td>Lorem ipsum dolor sit amet consectetur.</td>
-                            <td>Photo</td>
-                            <td>Edit | Delete</td>
+                        <tr v-for="(post,index) in getPost" :key="post.id">
+                            <td>{{index+1}}</td>
+                            <td v-if="post.user">{{post.user.name}}</td>
+                            <td v-if="post.category">{{post.category.cat_name}}</td>
+                            <td>{{post.title | limit(20,'...')}}</td>
+                            <td>{{post.description | limit(30,'...')}}</td>
+                            <td><img :src="post.photo" alt="" width="75" height="55"></td>
+                            <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -37,3 +39,23 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name:'List',
+    mounted()
+    {
+        this.$store.dispatch('getPost')
+    },
+    computed:
+    {
+        getPost(){
+            return this.$store.getters.getPost;
+        }
+    },
+    methods:
+    {
+
+    }
+}
+</script>
