@@ -31,7 +31,7 @@
                             <td v-if="post.title">{{post.title | limit(20,'...')}}</td>
                             <td v-if="post.description">{{post.description | limit(30,'...')}}</td>
                             <td v-if="post.photo"><img :src="img(post.photo)" alt="" width="75" height="55"></td>
-                            <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                            <td><a href="#">Edit</a> | <a href="" @click.prevent="deletePost(post.id)" >Delete</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -58,6 +58,18 @@ export default {
         img(img)
         {
             return 'img/'+img;
+        },
+
+        deletePost(id)
+        {
+            axios.get('/delete-post/'+id)
+                .then((response)=>{
+                    this.$store.dispatch('getPost')
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Post deleted successfully.'
+                    })
+                })
         }
     }
 }

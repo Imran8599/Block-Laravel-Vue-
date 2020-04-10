@@ -44,4 +44,17 @@ class PostController extends Controller
 
         $row->save();
     }
+
+    public function delete($id)
+    {
+        $row = Post::find($id);
+        $image_path = public_path().'/img/';
+        $image = $image_path.$row->photo;
+        if(file_exists($image))
+        {
+            @unlink($image);
+        }
+
+        $row->delete();
+    }
 }

@@ -13,6 +13,7 @@ Route::get('delete-category/{id}','backend\CategoryController@delete');
 //Post
 Route::get('post','backend\PostController@index');
 Route::post('add-post','backend\PostController@store');
+Route::get('delete-post/{id}','backend\PostController@delete');
 
 
 
