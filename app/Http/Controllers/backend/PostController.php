@@ -15,4 +15,15 @@ class PostController extends Controller
             'posts' => $posts
         ],200);
     }
+
+    public function store(Request $request)
+    {
+        // $this->validate($request, [
+        //     'cat_id' => 'required',
+        //     'title' => 'required',
+        //     'description' => 'required',
+        //     'photo' => 'required',
+        // ]);
+        dd($request->all());
+    }
 }
