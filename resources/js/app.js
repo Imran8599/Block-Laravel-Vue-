@@ -43,6 +43,11 @@ window.Toast = Toast;
 // Vue Filter
 import {filter} from './filter'
 
+// Text Editor
+import 'v-markdown-editor/dist/v-markdown-editor.css';
+import Editor from 'v-markdown-editor'
+Vue.use(Editor)
+
 
 const router = new VueRouter({
     routes,

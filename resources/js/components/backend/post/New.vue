@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Post Description</label>
-                        <textarea class="form-control" name="description" id="description" placeholder="Post Description" rows="6" v-model="form.description" :class="{ 'is-invalid': form.errors.has('description') }"></textarea>
+                        <markdown-editor name="description" id="description" v-model="form.description" :class="{ 'is-invalid': form.errors.has('description') }"></markdown-editor>
                         <has-error :form="form" field="description"></has-error>
                     </div>
                     <div class="form-group">

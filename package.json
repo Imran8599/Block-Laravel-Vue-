@@ -22,6 +22,7 @@
     "dependencies": {
         "moment": "^2.24.0",
         "sweetalert2": "^9.10.9",
+        "v-markdown-editor": "^1.2.4",
         "vform": "^1.0.1",
         "vue": "^2.6.11",
         "vue-router": "^3.1.6",
