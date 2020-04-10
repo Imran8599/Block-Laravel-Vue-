@@ -6,7 +6,7 @@
         <div class="card-body">
             <h4 class="card-title">Add New Post</h4>
             <div class="basic-form">
-                <form role="form" class="mt-5" enctype="multipart/form-data">
+                <form role="form" class="mt-5" @submit.prevent="addPost()" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="cat_id">Post Category</label>
                         <select class="form-control" name="cat_id" id="cat_id" v-model="form.cat_id" :class="{ 'is-invalid': form.errors.has('cat_id') }">
@@ -80,13 +80,20 @@ export default {
 
         changePhoto(event)
         {
-            console.log('success');
             let file = event.target.files[0];
-            let reader = new FileReader();
-            reader.onload = event => {
-                this.form.photo = event.target.result
-            };
-            reader.readAsDataURL(file);
+            if(file.size>1048576){
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Maximum file size 1MB.'
+                })
+            }
+            else{
+                let reader = new FileReader();
+                reader.onload = event => {
+                    this.form.photo = event.target.result
+                };
+                reader.readAsDataURL(file);
+            }
         }
     }
 }

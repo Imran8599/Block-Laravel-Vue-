@@ -28,9 +28,9 @@
                             <td>{{index+1}}</td>
                             <td v-if="post.user">{{post.user.name}}</td>
                             <td v-if="post.category">{{post.category.cat_name}}</td>
-                            <td>{{post.title | limit(20,'...')}}</td>
-                            <td>{{post.description | limit(30,'...')}}</td>
-                            <td><img :src="post.photo" alt="" width="75" height="55"></td>
+                            <td v-if="post.title">{{post.title | limit(20,'...')}}</td>
+                            <td v-if="post.description">{{post.description | limit(30,'...')}}</td>
+                            <td v-if="post.photo"><img :src="img(post.photo)" alt="" width="75" height="55"></td>
                             <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
                         </tr>
                     </tbody>
@@ -55,7 +55,10 @@ export default {
     },
     methods:
     {
-
+        img(img)
+        {
+            return 'img/'+img;
+        }
     }
 }
 </script>

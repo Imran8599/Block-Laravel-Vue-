@@ -2160,7 +2160,11 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getPost;
     }
   },
-  methods: {}
+  methods: {
+    img: function img(_img) {
+      return 'img/' + _img;
+    }
+  }
 });
 
 /***/ }),
@@ -2252,15 +2256,22 @@ __webpack_require__.r(__webpack_exports__);
     changePhoto: function changePhoto(event) {
       var _this2 = this;
 
-      console.log('success');
       var file = event.target.files[0];
-      var reader = new FileReader();
 
-      reader.onload = function (event) {
-        _this2.form.photo = event.target.result;
-      };
+      if (file.size > 1048576) {
+        Toast.fire({
+          icon: 'error',
+          title: 'Maximum file size 1MB.'
+        });
+      } else {
+        var reader = new FileReader();
 
-      reader.readAsDataURL(file);
+        reader.onload = function (event) {
+          _this2.form.photo = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
     }
   }
 });
@@ -62672,24 +62683,32 @@ var render = function() {
                   ? _c("td", [_vm._v(_vm._s(post.category.cat_name))])
                   : _vm._e(),
                 _vm._v(" "),
-                _c("td", [
-                  _vm._v(_vm._s(_vm._f("limit")(post.title, 20, "...")))
-                ]),
+                post.title
+                  ? _c("td", [
+                      _vm._v(_vm._s(_vm._f("limit")(post.title, 20, "...")))
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("td", [
-                  _vm._v(_vm._s(_vm._f("limit")(post.description, 30, "...")))
-                ]),
+                post.description
+                  ? _c("td", [
+                      _vm._v(
+                        _vm._s(_vm._f("limit")(post.description, 30, "..."))
+                      )
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("td", [
-                  _c("img", {
-                    attrs: {
-                      src: post.photo,
-                      alt: "",
-                      width: "75",
-                      height: "55"
-                    }
-                  })
-                ]),
+                post.photo
+                  ? _c("td", [
+                      _c("img", {
+                        attrs: {
+                          src: _vm.img(post.photo),
+                          alt: "",
+                          width: "75",
+                          height: "55"
+                        }
+                      })
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _vm._m(2, true)
               ])
@@ -62775,7 +62794,13 @@ var render = function() {
           "form",
           {
             staticClass: "mt-5",
-            attrs: { role: "form", enctype: "multipart/form-data" }
+            attrs: { role: "form", enctype: "multipart/form-data" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.addPost()
+              }
+            }
           },
           [
             _c(
