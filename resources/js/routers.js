@@ -4,6 +4,7 @@ import AddCategory from './components/backend/category/New';
 import EditCategory from './components/backend/category/Edit';
 import PostList from './components/backend/post/List';
 import AddPost from './components/backend/post/New';
+import EditPost from './components/backend/post/Edit';
 
 export const routes = [
     {
@@ -31,5 +32,9 @@ export const routes = [
     {
         path:'/add-post',
         component: AddPost  
+    },
+    {
+        path:'/edit-post/:id',
+        component: EditPost
     },
 ]

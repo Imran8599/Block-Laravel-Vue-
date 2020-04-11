@@ -13,6 +13,8 @@ Route::get('delete-category/{id}','backend\CategoryController@delete');
 //Post
 Route::get('post','backend\PostController@index');
 Route::post('add-post','backend\PostController@store');
+Route::get('edit-post/{id}','backend\PostController@edit');
+Route::post('update-post/{id}','backend\PostController@update');
 Route::get('delete-post/{id}','backend\PostController@delete');
 
 
