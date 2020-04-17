@@ -3,7 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/','backend\IndexController@index');
+Route::get('/','frontend\IndexController@index');
+
+
+
+
+
+
+Route::get('/admin','backend\IndexController@index');
 //Category
 Route::get('category','backend\CategoryController@allCategory');
 Route::post('add-category','backend\CategoryController@store');
