@@ -18,6 +18,7 @@ import {routes} from './routers';
 
 //Components
 Vue.component('admin-master',require('./components/backend/AdminMaster.vue').default);
+Vue.component('index-master',require('./components/frontend/IndexMaster.vue').default);
 
 //VForm
 import { Form, HasError, AlertError } from 'vform'

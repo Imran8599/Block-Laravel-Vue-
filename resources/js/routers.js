@@ -6,6 +6,11 @@ import PostList from './components/backend/post/List';
 import AddPost from './components/backend/post/New';
 import EditPost from './components/backend/post/Edit';
 
+//Frontend
+import Home from './components/frontend/Home';
+import Posts from './components/frontend/Posts';
+
+
 export const routes = [
     {
         path:'/admin',
@@ -36,5 +41,17 @@ export const routes = [
     {
         path:'/edit-post/:id',
         component: EditPost
+    },
+
+
+
+    //Frontend
+    {
+        path:'/',
+        component: Home
+    },
+    {
+        path:'/blog',
+        component: Posts
     },
 ]

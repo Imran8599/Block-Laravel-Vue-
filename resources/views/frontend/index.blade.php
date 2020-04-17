@@ -16,8 +16,6 @@
   <link href="{{asset('frontend/')}}/css/jcarousel.css" rel="stylesheet" />
   <link href="{{asset('frontend/')}}/css/flexslider.css" rel="stylesheet" />
   <link href="{{asset('frontend/')}}/css/style.css" rel="stylesheet" />
-
-  <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
   <!-- Theme skin -->
   <link href="{{asset('frontend/')}}/skins/default.css" rel="stylesheet" />
   <!-- Fav and touch icons -->
@@ -37,7 +35,7 @@
 
 <body>
   <div id="app">
-    <div id="wrapper" class="boxed">
+    <div id="wrapper">
       <!-- toggle top area -->
       <div class="hidden-top">
         <div class="hidden-top-inner container">
@@ -55,7 +53,7 @@
       <!-- end toggle top area -->
       <!-- start header -->
       <header>
-        <div class="container">
+        <div class="container ">
           <!-- hidden top area toggle link -->
           <div id="header-hidden-link">
             <a href="#" class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
@@ -180,11 +178,7 @@
                   <nav>
                     <ul class="nav topnav">
                       <li class="dropdown">
-                        <a href="index.html">Home <i class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="index-alt2.html">Homepage 2</a></li>
-                          <li><a href="index-alt3.html">Homepage 3</a></li>
-                        </ul>
+                        <router-link to="/">Home</router-link>
                       </li>
                       <li class="dropdown">
                         <a href="#">Features <i class="icon-angle-down"></i></a>
@@ -223,13 +217,7 @@
                         </ul>
                       </li>
                       <li class="dropdown active">
-                        <a href="#">Blog <i class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                          <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-                          <li><a href="post-left-sidebar.html">Post left sidebar</a></li>
-                          <li><a href="post-right-sidebar.html">Post right sidebar</a></li>
-                        </ul>
+                        <router-link to="/blog">Blog </router-link>
                       </li>
                       <li>
                         <a href="contact.html">Contact </a>
@@ -244,192 +232,14 @@
         </div>
       </header>
       <!-- end header -->
-      <section id="content">
-        <div class="container">
-          <div class="row">
-            <div class="span4">
-              <aside class="left-sidebar">
-                <div class="widget">
-                  <form class="form-search">
-                    <input placeholder="Type something" type="text" class="input-medium search-query">
-                    <button type="submit" class="btn btn-square btn-theme">Search</button>
-                  </form>
-                </div>
-                <div class="widget">
-                  <h5 class="widgetheading">Categories</h5>
-                  <ul class="cat">
-                    <li><i class="icon-angle-right"></i><a href="#">Web design</a><span> (20)</span></li>
-                    <li><i class="icon-angle-right"></i><a href="#">Online business</a><span> (11)</span></li>
-                    <li><i class="icon-angle-right"></i><a href="#">Marketing strategy</a><span> (9)</span></li>
-                    <li><i class="icon-angle-right"></i><a href="#">Technology</a><span> (12)</span></li>
-                    <li><i class="icon-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>
-                  </ul>
-                </div>
-                <div class="widget">
-                  <h5 class="widgetheading">Latest posts</h5>
-                  <ul class="recent">
-                    <li>
-                      <img src="{{asset('frontend/')}}/img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-                      <h6><a href="#">Lorem ipsum dolor sit</a></h6>
-                      <p>
-                        Mazim alienum appellantur eu cu ullum officiis pro pri
-                      </p>
-                    </li>
-                    <li>
-                      <a href="#"><img src="{{asset('frontend/')}}/img/dummies/blog/65x65/thumb2.jpg" class="pull-left" alt="" /></a>
-                      <h6><a href="#">Maiorum ponderum eum</a></h6>
-                      <p>
-                        Mazim alienum appellantur eu cu ullum officiis pro pri
-                      </p>
-                    </li>
-                    <li>
-                      <a href="#"><img src="{{asset('frontend/')}}/img/dummies/blog/65x65/thumb3.jpg" class="pull-left" alt="" /></a>
-                      <h6><a href="#">Et mei iusto dolorum</a></h6>
-                      <p>
-                        Mazim alienum appellantur eu cu ullum officiis pro pri
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-                <div class="widget">
-                  <h5 class="widgetheading">Popular tags</h5>
-                  <ul class="tags">
-                    <li><a href="#">Web design</a></li>
-                    <li><a href="#">Trends</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Internet</a></li>
-                    <li><a href="#">Tutorial</a></li>
-                    <li><a href="#">Development</a></li>
-                  </ul>
-                </div>
-              </aside>
-            </div>
-            <div class="span8">
-              <article>
-                <div class="row">
-                  <div class="span8">
-                    <div class="post-image">
-                      <div class="post-heading">
-                        <h3><a href="#">This is an example of standard post format</a></h3>
-                      </div>
-                      <img src="{{asset('frontend/')}}/img/dummies/blog/img1.jpg" alt="" />
-                    </div>
-                    <p>
-                      Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius
-                      ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.
-                    </p>
-                    <div class="bottom-article">
-                      <ul class="meta-post">
-                        <li><i class="icon-calendar"></i><a href="#"> Mar 23, 2013</a></li>
-                        <li><i class="icon-user"></i><a href="#"> Admin</a></li>
-                        <li><i class="icon-folder-open"></i><a href="#"> Blog</a></li>
-                        <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
-                      </ul>
-                      <a href="#" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <article>
-                <div class="row">
-                  <div class="span8">
-                    <div class="post-slider">
-                      <div class="post-heading">
-                        <h3><a href="#">This is an example of slider post format</a></h3>
-                      </div>
-                      <!-- start flexslider -->
-                      <div class="flexslider">
-                        <ul class="slides">
-                          <li>
-                            <img src="{{asset('frontend/')}}/img/dummies/blog/img1.jpg" alt="" />
-                          </li>
-                          <li>
-                            <img src="{{asset('frontend/')}}/img/dummies/blog/img2.jpg" alt="" />
-                          </li>
-                          <li>
-                            <img src="{{asset('frontend/')}}/img/dummies/blog/img3.jpg" alt="" />
-                          </li>
-                        </ul>
-                      </div>
-                      <!-- end flexslider -->
-                    </div>
-                    <p>
-                      Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius
-                      ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.
-                    </p>
-                    <div class="bottom-article">
-                      <ul class="meta-post">
-                        <li><i class="icon-calendar"></i><a href="#"> Mar 23, 2013</a></li>
-                        <li><i class="icon-user"></i><a href="#"> Admin</a></li>
-                        <li><i class="icon-folder-open"></i><a href="#"> Blog</a></li>
-                        <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
-                      </ul>
-                      <a href="#" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <article>
-                <div class="row">
-                  <div class="span8">
-                    <div class="post-quote">
-                      <div class="post-heading">
-                        <h3><a href="#">Nice example of quote post format below</a></h3>
-                      </div>
-                      <blockquote>
-                        <i class="icon-quote-left"></i> Lorem ipsum dolor sit amet, ei quod constituto qui. Summo labores expetendis ad quo, lorem luptatum et vis. No qui vidisse signiferumque...
-                      </blockquote>
-                    </div>
-                    <div class="bottom-article">
-                      <ul class="meta-post">
-                        <li><i class="icon-calendar"></i><a href="#"> Mar 23, 2013</a></li>
-                        <li><i class="icon-user"></i><a href="#"> Admin</a></li>
-                        <li><i class="icon-folder-open"></i><a href="#"> Blog</a></li>
-                        <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
-                      </ul>
-                      <a href="#" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <article>
-                <div class="row">
-                  <div class="span8">
-                    <div class="post-video">
-                      <div class="post-heading">
-                        <h3><a href="#">Amazing video post format here</a></h3>
-                      </div>
-                      <div class="video-container">
-                        <iframe src="http://player.vimeo.com/video/30585464?title=0&amp;byline=0">
-                  </iframe>
-                      </div>
-                    </div>
-                    <p>
-                      Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius
-                      ea. Usu ea justo malis, pri quando everti electram ei.
-                    </p>
-                    <div class="bottom-article">
-                      <ul class="meta-post">
-                        <li><i class="icon-calendar"></i><a href="#"> Mar 23, 2013</a></li>
-                        <li><i class="icon-user"></i><a href="#"> Admin</a></li>
-                        <li><i class="icon-folder-open"></i><a href="#"> Blog</a></li>
-                        <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
-                      </ul>
-                      <a href="#" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <div id="pagination">
-                <span class="all">Page 1 of 3</span>
-                <span class="current">1</span>
-                <a href="#" class="inactive">2</a>
-                <a href="#" class="inactive">3</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
+  
+
+      {{-- Vue Js --}}
+      <index-master></index-master>
+  
+  
+  
       <footer>
         <div id="sub-footer">
           <div class="container">
@@ -446,7 +256,7 @@
                       Licensing information: https://bootstrapmade.com/license/
                       Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Flattern
                     -->
-                    Designed by <a href="#">Imran Ahamed</a>
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                   </div>
                 </div>
               </div>
@@ -490,5 +300,4 @@
   <script src="{{asset('js/app.js')}}"></script>
 
 </body>
-
 </html>
