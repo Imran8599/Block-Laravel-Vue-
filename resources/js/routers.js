@@ -8,7 +8,7 @@ import EditPost from './components/backend/post/Edit';
 
 //Frontend
 import Home from './components/frontend/Home';
-import Posts from './components/frontend/Posts';
+import Posts from './components/frontend/blog/Posts';
 
 
 export const routes = [
