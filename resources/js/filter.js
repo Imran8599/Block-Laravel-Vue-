@@ -3,7 +3,7 @@ import Vue from 'vue'
 
 // Moment Js 
 Vue.filter('dateformat',(arg)=>{
-    return moment(arg).format("MMM Do YYYY");
+    return moment(arg).format("MMM D YYYY");
 })
 
 // Text Limit

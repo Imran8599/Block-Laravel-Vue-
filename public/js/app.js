@@ -2471,12 +2471,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Sidebar: _Sidebar__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('getPost');
+  },
+  computed: {
+    allPost: function allPost() {
+      return this.$store.getters.getPost;
+    }
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -63860,7 +63868,80 @@ var render = function() {
         _c(
           "div",
           { staticClass: "row" },
-          [_c("Sidebar"), _vm._v(" "), _vm._m(0)],
+          [
+            _c("Sidebar"),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "span8" },
+              [
+                _vm._l(_vm.allPost, function(post) {
+                  return _c("article", { key: post.id }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "span8" }, [
+                        _c("div", { staticClass: "post-image" }, [
+                          _c("div", { staticClass: "post-heading" }, [
+                            _c("h3", [
+                              _c("a", { attrs: { href: "#" } }, [
+                                _vm._v(_vm._s(post.title))
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("img", { attrs: { src: "", alt: "" } })
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(post.description) +
+                              "\n                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "bottom-article" }, [
+                          _c("ul", { staticClass: "meta-post" }, [
+                            _c("li", [
+                              _c("i", { staticClass: "icon-calendar" }),
+                              _c("a", { attrs: { href: "#" } }, [
+                                _vm._v(
+                                  " " +
+                                    _vm._s(
+                                      _vm._f("dateformat")(post.created_at)
+                                    )
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _c("i", { staticClass: "icon-user" }),
+                              _c("a", { attrs: { href: "#" } }, [
+                                _vm._v(" " + _vm._s(post.user.name))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _c("i", { staticClass: "icon-folder-open" }),
+                              _c("a", { attrs: { href: "#" } }, [
+                                _vm._v(" " + _vm._s(post.category.cat_name))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(0, true)
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(1, true)
+                        ])
+                      ])
+                    ])
+                  ])
+                }),
+                _vm._v(" "),
+                _vm._m(2)
+              ],
+              2
+            )
+          ],
           1
         )
       ])
@@ -63872,73 +63953,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "span8" }, [
-      _c("article", [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "span8" }, [
-            _c("div", { staticClass: "post-image" }, [
-              _c("div", { staticClass: "post-heading" }, [
-                _c("h3", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _vm._v("This is an example of standard post format")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("img", { attrs: { src: "", alt: "" } })
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                            Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius\n                            ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "bottom-article" }, [
-              _c("ul", { staticClass: "meta-post" }, [
-                _c("li", [
-                  _c("i", { staticClass: "icon-calendar" }),
-                  _c("a", { attrs: { href: "#" } }, [_vm._v(" Mar 23, 2013")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("i", { staticClass: "icon-user" }),
-                  _c("a", { attrs: { href: "#" } }, [_vm._v(" Admin")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("i", { staticClass: "icon-folder-open" }),
-                  _c("a", { attrs: { href: "#" } }, [_vm._v(" Blog")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("i", { staticClass: "icon-comments" }),
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("4 Comments")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "pull-right", attrs: { href: "#" } }, [
-                _vm._v("Continue reading "),
-                _c("i", { staticClass: "icon-angle-right" })
-              ])
-            ])
-          ])
-        ])
-      ]),
+    return _c("li", [
+      _c("i", { staticClass: "icon-comments" }),
+      _c("a", { attrs: { href: "#" } }, [_vm._v("4 Comments")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "pull-right", attrs: { href: "#" } }, [
+      _vm._v("Continue reading "),
+      _c("i", { staticClass: "icon-angle-right" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "pagination" } }, [
+      _c("span", { staticClass: "all" }, [_vm._v("Page 1 of 3")]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "pagination" } }, [
-        _c("span", { staticClass: "all" }, [_vm._v("Page 1 of 3")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "current" }, [_vm._v("1")]),
-        _vm._v(" "),
-        _c("a", { staticClass: "inactive", attrs: { href: "#" } }, [
-          _vm._v("2")
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "inactive", attrs: { href: "#" } }, [
-          _vm._v("3")
-        ])
-      ])
+      _c("span", { staticClass: "current" }, [_vm._v("1")]),
+      _vm._v(" "),
+      _c("a", { staticClass: "inactive", attrs: { href: "#" } }, [_vm._v("2")]),
+      _vm._v(" "),
+      _c("a", { staticClass: "inactive", attrs: { href: "#" } }, [_vm._v("3")])
     ])
   }
 ]
@@ -81170,7 +81210,7 @@ __webpack_require__.r(__webpack_exports__);
  // Moment Js 
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.filter('dateformat', function (arg) {
-  return moment__WEBPACK_IMPORTED_MODULE_0___default()(arg).format("MMM Do YYYY");
+  return moment__WEBPACK_IMPORTED_MODULE_0___default()(arg).format("MMM D YYYY");
 }); // Text Limit
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.filter('limit', function (text, length, suffix) {
