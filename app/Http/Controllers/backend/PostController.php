@@ -101,4 +101,21 @@ class PostController extends Controller
 
         $row->delete();
     }
+
+
+    public function details($id)
+    {
+        $row = Post::with('user','category')->where('id',$id)->first();
+        return response()->json([
+            'post'=>$row
+        ],200);
+    }
+
+    public function latestPost()
+    {
+        $rows = Post::orderBy('id','desc')->limit(3)->get();
+        return response()->json([
+            'posts'=>$rows
+        ]);
+    }
 }

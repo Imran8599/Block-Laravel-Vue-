@@ -23,6 +23,8 @@ Route::post('add-post','backend\PostController@store');
 Route::get('edit-post/{id}','backend\PostController@edit');
 Route::post('update-post/{id}','backend\PostController@update');
 Route::get('delete-post/{id}','backend\PostController@delete');
+Route::get('single-post/{id}','backend\PostController@details');
+Route::get('latest-post','backend\PostController@latestPost');
 
 
 

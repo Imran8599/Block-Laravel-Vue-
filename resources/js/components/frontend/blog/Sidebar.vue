@@ -11,36 +11,18 @@
                 <div class="widget">
                 <h5 class="widgetheading">Categories</h5>
                 <ul class="cat">
-                    <li><i class="icon-angle-right"></i><a href="#">Web design</a><span> (20)</span></li>
-                    <li><i class="icon-angle-right"></i><a href="#">Online business</a><span> (11)</span></li>
-                    <li><i class="icon-angle-right"></i><a href="#">Marketing strategy</a><span> (9)</span></li>
-                    <li><i class="icon-angle-right"></i><a href="#">Technology</a><span> (12)</span></li>
-                    <li><i class="icon-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>
+                    <li v-for="category in allCategory" :key="category.id"><i class="icon-angle-right"></i><a href="#">{{category.cat_name}}</a><span> (20)</span></li>
                 </ul>
                 </div>
                 <div class="widget">
                 <h5 class="widgetheading">Latest posts</h5>
                 <ul class="recent">
-                    <li>
-                    <img src="" class="pull-left" alt="" />
-                    <h6><a href="#">Lorem ipsum dolor sit</a></h6>
-                    <p>
-                        Mazim alienum appellantur eu cu ullum officiis pro pri
-                    </p>
-                    </li>
-                    <li>
-                    <a href="#"><img src="" class="pull-left" alt="" /></a>
-                    <h6><a href="#">Maiorum ponderum eum</a></h6>
-                    <p>
-                        Mazim alienum appellantur eu cu ullum officiis pro pri
-                    </p>
-                    </li>
-                    <li>
-                    <a href="#"><img src="" class="pull-left" alt="" /></a>
-                    <h6><a href="#">Et mei iusto dolorum</a></h6>
-                    <p>
-                        Mazim alienum appellantur eu cu ullum officiis pro pri
-                    </p>
+                    <li v-for="post in latestPost" :key="post.id">
+                        <img :src="`img/${post.photo}`" class="pull-left" alt="" width="25%"/>
+                        <h6><router-link :to="`/details/${post.id}`">{{post.title}}</router-link></h6>
+                        <p>
+                            {{post.description}}
+                        </p>
                     </li>
                 </ul>
                 </div>
@@ -59,3 +41,25 @@
         </div>
     </span>
 </template>
+
+<script>
+export default {
+    mounted()
+    {
+        this.$store.dispatch('getAllCategory');
+        this.$store.dispatch('latestPost');
+    },
+    computed:
+    {
+        allCategory()
+        {
+            return this.$store.getters.getCategory;
+        },
+        latestPost()
+        {
+            return this.$store.getters.latestPost;
+        }
+    }
+
+}
+</script>

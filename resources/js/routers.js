@@ -9,7 +9,7 @@ import EditPost from './components/backend/post/Edit';
 //Frontend
 import Home from './components/frontend/Home';
 import Posts from './components/frontend/blog/Posts';
-
+import Details from './components/frontend/blog/Details';
 
 export const routes = [
     {
@@ -53,5 +53,9 @@ export const routes = [
     {
         path:'/blog',
         component: Posts
+    },
+    {
+        path:'/details/:id',
+        component: Details
     },
 ]
