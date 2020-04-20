@@ -2469,11 +2469,21 @@ __webpack_require__.r(__webpack_exports__);
     Sidebar: _Sidebar__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
-    this.$store.dispatch('singlePost', this.$route.params.id);
+    this.singlePost();
   },
   computed: {
     post: function post() {
       return this.$store.getters.singlePost;
+    }
+  },
+  methods: {
+    singlePost: function singlePost() {
+      this.$store.dispatch('singlePost', this.$route.params.id);
+    }
+  },
+  watch: {
+    $route: function $route(to, from) {
+      this.singlePost();
     }
   }
 });

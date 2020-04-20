@@ -48,7 +48,7 @@ export default {
     },
     mounted()
     {
-        this.$store.dispatch('singlePost',this.$route.params.id)
+        this.singlePost();
     },
     computed:
     {
@@ -56,6 +56,20 @@ export default {
         {
             return this.$store.getters.singlePost;
         }
+    },
+    methods:
+    {
+      singlePost()
+      {
+        this.$store.dispatch('singlePost',this.$route.params.id)
+      }
+    },
+    watch:
+    {
+      $route(to,from)
+      {
+        this.singlePost();
+      }
     }
 }
 </script>
