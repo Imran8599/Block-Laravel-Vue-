@@ -9,7 +9,6 @@
                     <Sidebar/>
 
                     <div class="span8">
-                        {{this.$route.params.id}}
                         <article v-for="post in allPost" :key="post.id">
                             <div class="row">
                                 <div class="span8">

@@ -4,7 +4,7 @@
             <aside class="left-sidebar">
                 <div class="widget">
                 <form class="form-search">
-                    <input placeholder="Type something" v-model="search_input" type="text" class="input-medium search-query">
+                    <input placeholder="Type something" @keyup="search" v-model="search_input" type="text" class="input-medium search-query">
                     <button type="submit" @click.prevent="search" class="btn btn-square btn-theme">Search</button>
                 </form>
                 </div>
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import _ from 'lodash';
 export default {
     data()
     {
@@ -66,10 +67,9 @@ export default {
     },
     methods:
     {
-        search()
-        {
+        search:_.debounce(function(){
             this.$store.dispatch('search',this.search_input);
-        }
+        },1000)
     }
 
 }

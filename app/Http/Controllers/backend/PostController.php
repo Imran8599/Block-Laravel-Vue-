@@ -130,7 +130,7 @@ class PostController extends Controller
     public function search()
     {
         $value = \Request::get('s');
-        $row = Post::with('user','category')->where('title','LIKE',"%$value%")->get();
+        $row = Post::with('user','category')->where('title','LIKE',"%$value%")->orderBy('id','desc')->get();
         return response()->json([
             'search'=>$row
         ],200);

@@ -2548,7 +2548,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2589,6 +2588,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2633,6 +2634,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     search_input = '';
@@ -2650,9 +2652,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    search: function search() {
+    search: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.debounce(function () {
       this.$store.dispatch('search', this.search_input);
-    }
+    }, 1000)
   }
 });
 
@@ -64139,11 +64141,6 @@ var render = function() {
               "div",
               { staticClass: "span8" },
               [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(this.$route.params.id) +
-                    "\n                    "
-                ),
                 _vm._l(_vm.allPost, function(post) {
                   return _c("article", { key: post.id }, [
                     _c("div", { staticClass: "row" }, [
@@ -64298,6 +64295,7 @@ var render = function() {
               attrs: { placeholder: "Type something", type: "text" },
               domProps: { value: _vm.search_input },
               on: {
+                keyup: _vm.search,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
