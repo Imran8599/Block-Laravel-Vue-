@@ -2634,6 +2634,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    search_input = '';
+  },
   mounted: function mounted() {
     this.$store.dispatch('getAllCategory');
     this.$store.dispatch('latestPost');
@@ -2644,6 +2647,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     latestPost: function latestPost() {
       return this.$store.getters.latestPost;
+    }
+  },
+  methods: {
+    search: function search() {
+      this.$store.dispatch('search', this.search_input);
     }
   }
 });
@@ -64275,7 +64283,46 @@ var render = function() {
   return _c("span", [
     _c("div", { staticClass: "span4" }, [
       _c("aside", { staticClass: "left-sidebar" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "widget" }, [
+          _c("form", { staticClass: "form-search" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.search_input,
+                  expression: "search_input"
+                }
+              ],
+              staticClass: "input-medium search-query",
+              attrs: { placeholder: "Type something", type: "text" },
+              domProps: { value: _vm.search_input },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.search_input = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-square btn-theme",
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.search($event)
+                  }
+                }
+              },
+              [_vm._v("Search")]
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "widget" }, [
           _c("h5", { staticClass: "widgetheading" }, [_vm._v("Categories")]),
@@ -64341,34 +64388,12 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(0)
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "widget" }, [
-      _c("form", { staticClass: "form-search" }, [
-        _c("input", {
-          staticClass: "input-medium search-query",
-          attrs: { placeholder: "Type something", type: "text" }
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-square btn-theme",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("Search")]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -81655,6 +81680,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('category-posts/' + id).then(function (response) {
         context.commit('categoryPost', response.data.category_posts);
       });
+    },
+    search: function search(context, value) {
+      axios.get('search?s=' + value).then(function (response) {
+        context.commit('search', response.data.search);
+      });
     }
   },
   mutations: {
@@ -81671,6 +81701,9 @@ __webpack_require__.r(__webpack_exports__);
       return state.latestPosts = date;
     },
     categoryPost: function categoryPost(state, data) {
+      return state.posts = data;
+    },
+    search: function search(state, data) {
       return state.posts = data;
     }
   }

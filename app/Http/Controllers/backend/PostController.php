@@ -116,14 +116,23 @@ class PostController extends Controller
         $row = Post::orderBy('id','desc')->limit(3)->get();
         return response()->json([
             'posts'=>$row
-        ]);
+        ],200);
     }
 
     public function categoryPost($id)
     {
-        $rows = Post::with('user','category')->where('cat_id',$id)->get();
+        $rows = Post::with('user','category')->where('cat_id',$id)->orderBy('id','desc')->get();
         return response()->json([
             'category_posts'=>$rows
-        ]);
+        ],200);
+    }
+
+    public function search()
+    {
+        $value = \Request::get('s');
+        $row = Post::with('user','category')->where('title','LIKE',"%$value%")->get();
+        return response()->json([
+            'search'=>$row
+        ],200);
     }
 }

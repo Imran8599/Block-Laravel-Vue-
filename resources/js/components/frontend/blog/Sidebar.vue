@@ -4,8 +4,8 @@
             <aside class="left-sidebar">
                 <div class="widget">
                 <form class="form-search">
-                    <input placeholder="Type something" type="text" class="input-medium search-query">
-                    <button type="submit" class="btn btn-square btn-theme">Search</button>
+                    <input placeholder="Type something" v-model="search_input" type="text" class="input-medium search-query">
+                    <button type="submit" @click.prevent="search" class="btn btn-square btn-theme">Search</button>
                 </form>
                 </div>
                 <div class="widget">
@@ -44,6 +44,10 @@
 
 <script>
 export default {
+    data()
+    {
+        search_input = ''
+    },
     mounted()
     {
         this.$store.dispatch('getAllCategory');
@@ -58,6 +62,13 @@ export default {
         latestPost()
         {
             return this.$store.getters.latestPost;
+        }
+    },
+    methods:
+    {
+        search()
+        {
+            this.$store.dispatch('search',this.search_input);
         }
     }
 

@@ -63,6 +63,13 @@ export default {
                 .then((response)=>{
                     context.commit('categoryPost',response.data.category_posts)
                 });
+        },
+        search(context,value)
+        {
+            axios.get('search?s='+value)
+                .then((response)=>{
+                    context.commit('search',response.data.search)
+                });
         }
     },
     mutations:{
@@ -83,6 +90,10 @@ export default {
             return state.latestPosts = date;
         },
         categoryPost(state,data)
+        {
+            return state.posts = data;
+        },
+        search(state,data)
         {
             return state.posts = data;
         }
