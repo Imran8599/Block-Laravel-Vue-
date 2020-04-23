@@ -9,6 +9,7 @@
                     <Sidebar/>
 
                     <div class="span8">
+                        {{this.$route.params.id}}
                         <article v-for="post in allPost" :key="post.id">
                             <div class="row">
                                 <div class="span8">
@@ -68,7 +69,21 @@ export default {
     },
     methods:
     {
-
+        allCategoryPost()
+        {
+            if (this.$route.params.id != null) {
+                this.$store.dispatch('getCategoryPost',this.$route.params.id);
+            } else {
+                this.$store.dispatch('getPost');
+            }
+        }
+    },
+    watch:
+    {
+        $route(to,from)
+        {
+            this.allCategoryPost();
+        }
     }
 }
 </script>

@@ -2548,6 +2548,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2561,7 +2562,20 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getPost;
     }
   },
-  methods: {}
+  methods: {
+    allCategoryPost: function allCategoryPost() {
+      if (this.$route.params.id != null) {
+        this.$store.dispatch('getCategoryPost', this.$route.params.id);
+      } else {
+        this.$store.dispatch('getPost');
+      }
+    }
+  },
+  watch: {
+    $route: function $route(to, from) {
+      this.allCategoryPost();
+    }
+  }
 });
 
 /***/ }),
@@ -64117,6 +64131,11 @@ var render = function() {
               "div",
               { staticClass: "span8" },
               [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(this.$route.params.id) +
+                    "\n                    "
+                ),
                 _vm._l(_vm.allPost, function(post) {
                   return _c("article", { key: post.id }, [
                     _c("div", { staticClass: "row" }, [
@@ -64265,13 +64284,20 @@ var render = function() {
             "ul",
             { staticClass: "cat" },
             _vm._l(_vm.allCategory, function(category) {
-              return _c("li", { key: category.id }, [
-                _c("i", { staticClass: "icon-angle-right" }),
-                _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(_vm._s(category.cat_name))
-                ]),
-                _c("span", [_vm._v(" (20)")])
-              ])
+              return _c(
+                "li",
+                { key: category.id },
+                [
+                  _c("i", { staticClass: "icon-angle-right" }),
+                  _c(
+                    "router-link",
+                    { attrs: { to: "/category/" + category.id } },
+                    [_vm._v(_vm._s(category.cat_name))]
+                  ),
+                  _c("span", [_vm._v(" (20)")])
+                ],
+                1
+              )
             }),
             0
           )
@@ -81562,6 +81588,9 @@ var routes = [{
 }, {
   path: '/details/:id',
   component: _components_frontend_blog_Details__WEBPACK_IMPORTED_MODULE_9__["default"]
+}, {
+  path: '/category/:id',
+  component: _components_frontend_blog_Posts__WEBPACK_IMPORTED_MODULE_8__["default"]
 }];
 
 /***/ }),
@@ -81621,6 +81650,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('latest-post').then(function (response) {
         context.commit('latestPost', response.data.posts);
       });
+    },
+    getCategoryPost: function getCategoryPost(context, id) {
+      axios.get('category-posts/' + id).then(function (response) {
+        context.commit('categoryPost', response.data.category_posts);
+      });
     }
   },
   mutations: {
@@ -81635,6 +81669,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     latestPost: function latestPost(state, date) {
       return state.latestPosts = date;
+    },
+    categoryPost: function categoryPost(state, data) {
+      return state.posts = data;
     }
   }
 });

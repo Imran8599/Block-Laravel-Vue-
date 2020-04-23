@@ -25,6 +25,7 @@ Route::post('update-post/{id}','backend\PostController@update');
 Route::get('delete-post/{id}','backend\PostController@delete');
 Route::get('single-post/{id}','backend\PostController@details');
 Route::get('latest-post','backend\PostController@latestPost');
+Route::get('category-posts/{id}','backend\PostController@categoryPost');
 
 
 

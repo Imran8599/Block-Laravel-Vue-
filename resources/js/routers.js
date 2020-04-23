@@ -58,4 +58,8 @@ export const routes = [
         path:'/details/:id',
         component: Details
     },
+    {
+        path:'/category/:id',
+        component: Posts
+    },
 ]

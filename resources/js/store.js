@@ -56,6 +56,13 @@ export default {
                 .then((response)=>{
                     context.commit('latestPost',response.data.posts)
                 });
+        },
+        getCategoryPost(context,id)
+        {
+            axios.get('category-posts/'+id)
+                .then((response)=>{
+                    context.commit('categoryPost',response.data.category_posts)
+                });
         }
     },
     mutations:{
@@ -74,6 +81,10 @@ export default {
         latestPost(state,date)
         {
             return state.latestPosts = date;
+        },
+        categoryPost(state,data)
+        {
+            return state.posts = data;
         }
     }
 }
